@@ -112,14 +112,14 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_pushButton_3_clicked()
 {
     preset = ui->label->text().toInt();
-    preset -= 1;
+    preset -= 5;
     ui->label->setText(QString::number(preset));
 }
 
 void MainWindow::on_pushButton_4_clicked()
 {
     preset = ui->label->text().toInt();
-    preset += 1;
+    preset += 5;
     ui->label->setText(QString::number(preset));
 
 }
