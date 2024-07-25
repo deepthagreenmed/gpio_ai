@@ -129,7 +129,7 @@ void MainWindow::on_pushButton_5_clicked()
 {
     h->ai_off();
     h->ai_preset_count(0);
-    h->write_motor(0x00, 0x03, 0);
+    h->write_motor(0x00,0x03,0);
     h->ai_actual_count(0);
     ui->label_2->setText("0");
 }
