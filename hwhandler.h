@@ -25,24 +25,12 @@
 #define MAP_SIZE 4096UL
 #define MAP_MASK (MAP_SIZE - 1)
 
-#define VIT_ONOFF_REG               24
-#define VIT_ONTIME_REG              25
-#define VIT_COUNT_REG               26
-
 #define ON_MASK                     0x01
 #define OFF_MASK                    0x00
-
-#define VSO_PWM_ON_REG              40
-#define VSO_PWM_PERIOD_REG          42
-
-#define DIA_ONOFF_REG               20
-#define DIA_COUNT_REG               22
 
 #define AI_ONOFF_REG                44
 #define AI_PRESET_REG               48
 #define AI_COUNT_REG                50
-
-#define SIL_OIL_REG                 28
 
 #define CHANNEL_0                   0x97
 #define CHANNEL_1                   0xD7
