@@ -114,6 +114,7 @@ void MainWindow::on_pushButton_3_clicked()
     preset = ui->label->text().toInt();
     preset -= 5;
     ui->label->setText(QString::number(preset));
+
 }
 
 void MainWindow::on_pushButton_4_clicked()
