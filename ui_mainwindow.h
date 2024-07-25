@@ -30,6 +30,7 @@ public:
     QPushButton *pushButton_4;
     QLabel *label;
     QLabel *label_2;
+    QPushButton *pushButton_5;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -58,6 +59,9 @@ public:
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(220, 250, 101, 41));
+        pushButton_5 = new QPushButton(centralwidget);
+        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
+        pushButton_5->setGeometry(QRect(180, 320, 211, 25));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -81,6 +85,7 @@ public:
         pushButton_4->setText(QCoreApplication::translate("MainWindow", "Increase", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "60", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("MainWindow", "TURN OFF", nullptr));
     } // retranslateUi
 
 };

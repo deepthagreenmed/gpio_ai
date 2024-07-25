@@ -59,28 +59,12 @@ class hwHandler: public QThread
 
 public:
     explicit hwHandler(QObject *parent = 0);
-    int memfd;
-    static void vit_on(int count);
-    static void vit_off();
-    static void vit_ontime(int ontime);
-
-    static void vso_off();
-    static void vso_ontime(int ontime);
-    static void vso_period(int count);
-
-    static void dia_on();
-    static void dia_off();
-    static void dia_count(int count);
-
     static void ai_on();
     static void ai_off();
     static void ai_preset_count(int count);
     static void ai_actual_count(int count);
-
-    static void siloil_on();
-    static void siloil_off();
-
     void write_motor(uint16_t status, uint16_t direction, uint16_t value);
+    int memfd;
 
 
 signals:
