@@ -10,6 +10,7 @@
 #include <unistd.h>
 
 #include "vaccum.h"
+#include "hwhandler.h"
 
 #define CHANNEL_2       0xA7
 
@@ -27,14 +28,20 @@ public:
     void exportGPIO(int pin);
     void setGPIODirection(int pin, const std::string& direction);
     void writeGPIO(int pin, int value);
+    int preset;
 
 private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
 
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
 private:
     Ui::MainWindow *ui;
     Vaccum *vac;
+    hwHandler *h;
 };
 #endif // MAINWINDOW_H

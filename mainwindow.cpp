@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
     setGPIODirection(962,"out");
 
     vac = new Vaccum;
+    h = new hwHandler;
+
+    preset = ui->label->text().toInt();
 }
 
 MainWindow::~MainWindow()
@@ -53,6 +56,14 @@ void MainWindow::writeGPIO(int pin, int value) {
 void MainWindow::on_pushButton_clicked()
 {
     writeGPIO(963,1);
+    usleep(5000);
+    writeGPIO(963,0);
+
+    h->ai_on();
+    h->ai_preset_count(preset);
+
+    int flow=90+ (int)(preset* 1.5);
+    h->write_motor(0x01,0x03,flow);
 
     int actual;
     actual=0;
@@ -63,15 +74,24 @@ void MainWindow::on_pushButton_clicked()
     actual = static_cast<int>(actual/10);
 
     qDebug()<<actual;
+    ui->label_2->setText(QString::number(actual));
 
-    usleep(5000);
-    writeGPIO(963,0);
+    h->ai_actual_count(actual);
+
 
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
     writeGPIO(962,1);
+    usleep(5000);
+    writeGPIO(962,0);
+
+    h->ai_on();
+    h->ai_preset_count(preset);
+
+    int flow=90+ (int)(preset* 1.5);
+    h->write_motor(0x01,0x03,flow);
 
     int actual;
     actual=0;
@@ -82,8 +102,24 @@ void MainWindow::on_pushButton_2_clicked()
     actual = static_cast<int>(actual/10);
 
     qDebug()<<actual;
+    ui->label_2->setText(QString::number(actual));
 
-    usleep(5000);
-    writeGPIO(962,0);
+    h->ai_actual_count(actual);
+
+
+
+}
+void MainWindow::on_pushButton_3_clicked()
+{
+    preset = ui->label->text().toInt();
+    preset -= 1;
+    ui->label->setText(QString::number(preset));
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    preset = ui->label->text().toInt();
+    preset += 1;
+    ui->label->setText(QString::number(preset));
 
 }
