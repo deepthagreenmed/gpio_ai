@@ -7,11 +7,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    exportGPIO(960);
-    setGPIODirection(960,"out");
-    writeGPIO(960,1);
-    usleep(5000);
-    writeGPIO(960,0);
+    exportGPIO(963);
+    exportGPIO(962);
+    setGPIODirection(963,"out");
+    setGPIODirection(962,"out");
+
+    vac = new Vaccum;
 }
 
 MainWindow::~MainWindow()
@@ -47,4 +48,42 @@ void MainWindow::writeGPIO(int pin, int value) {
     }
     valueFile << value;
     valueFile.close();
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    writeGPIO(963,1);
+
+    int actual;
+    actual=0;
+    for(int i=0; i<10; i++)
+    {
+        actual += vac->convert(CHANNEL_2) * 0.1894;
+    }
+    actual = static_cast<int>(actual/10);
+
+    qDebug()<<actual;
+
+    usleep(5000);
+    writeGPIO(963,0);
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    writeGPIO(962,1);
+
+    int actual;
+    actual=0;
+    for(int i=0; i<10; i++)
+    {
+        actual += vac->convert(CHANNEL_2) * 0.1894;
+    }
+    actual = static_cast<int>(actual/10);
+
+    qDebug()<<actual;
+
+    usleep(5000);
+    writeGPIO(962,0);
+
 }
