@@ -62,7 +62,7 @@ void MainWindow::on_pushButton_clicked()
     h->ai_on();
     h->ai_preset_count(preset);
 
-    int flow=90+ (int)(preset* 1.5);
+    int flow=130;
     h->write_motor(0x01,0x03,flow);
 
     int actual;
@@ -90,7 +90,7 @@ void MainWindow::on_pushButton_2_clicked()
     h->ai_on();
     h->ai_preset_count(preset);
 
-    int flow=90+ (int)(preset* 1.5);
+    int flow=130;
     h->write_motor(0x01,0x03,flow);
 
     int actual;
